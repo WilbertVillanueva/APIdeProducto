@@ -1,0 +1,114 @@
+swagger: '2.0'
+info:
+  title: API de Productos
+  description: API para gestionar productos
+  version: 1.0.0
+paths:
+  /productos:
+    get:
+      summary: Obtiene todos los productos
+      responses:
+        '200':
+          description: Listado de productos
+          schema:
+            type: array
+            items:
+              type: object
+              properties:
+                id:
+                  type: string
+                nombre:
+                  type: string
+                precio:
+                  type: number
+                  format: float
+                descripcion:
+                  type: string
+    post:
+      summary: Crea un nuevo producto
+      parameters:
+        - in: body
+          name: producto
+          required: true
+          schema:
+            type: object
+            properties:
+              nombre:
+                type: string
+              precio:
+                type: number
+                format: float
+              descripcion:
+                type: string
+      responses:
+        '201':
+          description: Producto creado exitosamente
+        '400':
+          description: Datos del producto inválidos
+
+  /productos/{id}:
+    get:
+      summary: Obtiene un producto por su ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: string
+      responses:
+        '200':
+          description: Producto encontrado
+          schema:
+            type: object
+            properties:
+              id:
+                type: string
+              nombre:
+                type: string
+              precio:
+                type: number
+                format: float
+              descripcion:
+                type: string
+        '404':
+          description: Producto no encontrado
+          
+    put:
+      summary: Actualiza un producto por su ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: string
+        - in: body
+          name: producto
+          required: true
+          schema:
+            type: object
+            properties:
+              nombre:
+                type: string
+              precio:
+                type: number
+                format: float
+              descripcion:
+                type: string
+      responses:
+        '200':
+          description: Producto actualizado exitosamente
+        '404':
+          description: Producto no encontrado
+        '400':
+          description: Datos del producto inválidos
+
+    delete:
+      summary: Elimina un producto por su ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: string
+      responses:
+        '200':
+          description: Producto eliminado exitosamente
+        '404':
+          description: Producto no encontrado
