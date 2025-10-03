@@ -156,10 +156,7 @@ o	Revisa los logs del servidor para obtener detalles específicos del error.
 o	Esto puede ocurrir si el cuerpo de la solicitud POST o PUT no tiene los datos necesarios o están mal formateados.
 3.	Error 404 (Not Found):
 o	Este error ocurre cuando intentas acceder a un producto que no existe en la base de datos usando GET /productos/:id o DELETE /productos/:id.
-________________________________________
-Licencia
 
-Este proyecto está bajo la licencia MIT. Puedes modificar y distribuir este proyecto libremente.
 ________________________________________
 Conclusión
 
